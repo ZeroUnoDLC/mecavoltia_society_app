@@ -1,0 +1,16 @@
+# Lints estrictos según rules.md §3: el linter no se silencia, se corrige el código.
+include: package:very_good_analysis/analysis_options.yaml
+
+analyzer:
+  exclude:
+    - "**/*.g.dart"
+    - "**/*.freezed.dart"
+  language:
+    strict-casts: true
+    strict-inference: true
+    strict-raw-types: true
+
+linter:
+  rules:
+    # Los docs públicos no aplican a una app interna de 3 usuarios
+    public_member_api_docs: false
