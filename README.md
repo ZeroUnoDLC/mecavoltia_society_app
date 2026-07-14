@@ -45,6 +45,6 @@ flutter run               # emulador Android, apunta a http://10.0.2.2 automáti
 
 > Teléfono físico: además del mismo WiFi, el firewall de Windows debe permitir el puerto 80 entrante en redes privadas (una vez, como administrador): `netsh advfirewall firewall add rule name="Mecavoltia dev 80" dir=in action=allow protocol=TCP localport=80 profile=private`. Probá primero `http://TU_IP/es` en el navegador del teléfono: si la web carga, la app conecta.
 
-Credenciales de desarrollo: las del seed del auth service (`brayan@mecavoltia.com` / `cambiar_en_primer_login_b`, etc.).
+Credenciales de desarrollo: email de cada socio (`brayan@mecavoltia.com`, etc.) con la contraseña que hayas puesto en `SEED_PASSWORD_*` al correr el seed del auth service.
 
 Tras tocar modelos o providers: `dart run build_runner build --delete-conflicting-outputs`. Verificación: `flutter analyze && flutter test`.
