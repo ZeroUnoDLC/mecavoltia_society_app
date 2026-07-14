@@ -8,44 +8,41 @@ environment:
   sdk: ^3.12.2
 
 dependencies:
-  flutter:
-    sdk: flutter
-
-  # Estado y DI (rules.md §2: decisión cerrada)
-  flutter_riverpod: ^2.6.1
-  riverpod_annotation: ^2.6.1
-
-  # Modelos inmutables y serialización
-  freezed_annotation: ^2.4.4
-  json_annotation: ^4.9.0
-
+  cupertino_icons: ^1.0.8
   # HTTP con interceptores (auth + refresh automático)
   dio: ^5.7.0
-
-  # Navegación declarativa con guards de sesión
-  go_router: ^14.6.2
-
+  # PDF del CV — paquete oficial de flutter.dev (file_picker 8.x arrastra
+  # compileSdk 34 y la 11.x rompe el registrant)
+  file_selector: ^1.0.3
+  flutter:
+    sdk: flutter
+  # Config por archivo (assets/config.env) — editable sin recompilar flags
+  flutter_dotenv: ^5.2.1
+  # Estado y DI (rules.md §2: decisión cerrada)
+  flutter_riverpod: ^2.6.1
   # Tokens en Keychain/Keystore — jamás SharedPreferences (rules.md §4)
   flutter_secure_storage: ^9.2.2
-
-  # Selección de imágenes (trabajos, foto de perfil) y PDF (CV)
+  # Modelos inmutables y serialización
+  freezed_annotation: ^2.4.4
+  # Navegación declarativa con guards de sesión
+  go_router: ^14.6.2
+  # Imágenes de trabajos y foto de perfil
   image_picker: ^1.1.2
-  file_picker: ^8.1.6
-
-  cupertino_icons: ^1.0.8
+  json_annotation: ^4.9.0
+  riverpod_annotation: ^2.6.1
 
 dev_dependencies:
-  flutter_test:
-    sdk: flutter
-
   # Codegen
   build_runner: ^2.4.13
-  riverpod_generator: ^2.6.1
+  flutter_test:
+    sdk: flutter
   freezed: ^2.5.7
   json_serializable: ^6.8.0
-
+  riverpod_generator: ^2.6.1
   # Lints estrictos (rules.md §3)
   very_good_analysis: ^6.0.0
 
 flutter:
   uses-material-design: true
+  assets:
+    - assets/config.env

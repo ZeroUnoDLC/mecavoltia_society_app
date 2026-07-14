@@ -1,9 +1,8 @@
 import 'dart:typed_data';
 
-import 'package:riverpod_annotation/riverpod_annotation.dart';
-
 import 'package:mecavoltia_society_app/features/profile/data/profile_repository_impl.dart';
 import 'package:mecavoltia_society_app/features/profile/domain/member.dart';
+import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part 'profile_controller.g.dart';
 

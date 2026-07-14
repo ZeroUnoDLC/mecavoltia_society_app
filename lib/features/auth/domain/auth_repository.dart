@@ -1,3 +1,4 @@
+import 'package:mecavoltia_society_app/core/errors/failure.dart' show AuthFailure;
 import 'package:mecavoltia_society_app/features/auth/domain/session_user.dart';
 
 /// Contrato de identidad. La implementación vive en data/ (rules.md §1).

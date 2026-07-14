@@ -33,4 +33,18 @@ Consume la API vía el gateway: `/api/auth/*` (identidad) y `/api/*` (contenido)
 
 ## Ejecución
 
-Backend local vía `docker-compose.dev.yml` de la raíz (roadmap paso 2). Scaffolding de la app en el roadmap paso 5.
+1. Levantar el stack: `docker compose -f docker-compose.dev.yml up -d` (raíz del workspace).
+2. Correr la app:
+
+```sh
+flutter run -d windows    # escritorio, apunta a http://localhost
+flutter run               # emulador Android, apunta a http://10.0.2.2 automáticamente
+```
+
+**URL de la API**: se configura en [assets/config.env](assets/config.env) → `API_BASE_URL` (para teléfono físico en la LAN: la IP de tu PC, ej. `http://192.168.0.104`; vacío = default por plataforma). `--dart-define=API_BASE_URL=...` la sobreescribe si hace falta.
+
+> Teléfono físico: además del mismo WiFi, el firewall de Windows debe permitir el puerto 80 entrante en redes privadas (una vez, como administrador): `netsh advfirewall firewall add rule name="Mecavoltia dev 80" dir=in action=allow protocol=TCP localport=80 profile=private`. Probá primero `http://TU_IP/es` en el navegador del teléfono: si la web carga, la app conecta.
+
+Credenciales de desarrollo: las del seed del auth service (`brayan@mecavoltia.com` / `cambiar_en_primer_login_b`, etc.).
+
+Tras tocar modelos o providers: `dart run build_runner build --delete-conflicting-outputs`. Verificación: `flutter analyze && flutter test`.

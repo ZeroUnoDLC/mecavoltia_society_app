@@ -16,14 +16,11 @@ typedef OnSessionExpired = void Function();
 /// y reintenta la petición original — rules.md §4.
 class AuthInterceptor extends QueuedInterceptor {
   AuthInterceptor({
-    required TokenStorage storage,
-    required RefreshTokens refreshTokens,
-    required OnSessionExpired onSessionExpired,
-    required Dio retryClient,
-  })  : _storage = storage,
-        _refreshTokens = refreshTokens,
-        _onSessionExpired = onSessionExpired,
-        _retryClient = retryClient;
+    required this._storage,
+    required this._refreshTokens,
+    required this._onSessionExpired,
+    required this._retryClient,
+  });
 
   final TokenStorage _storage;
   final RefreshTokens _refreshTokens;

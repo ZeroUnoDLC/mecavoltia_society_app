@@ -1,10 +1,10 @@
 import 'package:dio/dio.dart';
-import 'package:riverpod_annotation/riverpod_annotation.dart';
-
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:mecavoltia_society_app/core/config/env.dart';
 import 'package:mecavoltia_society_app/core/network/auth_interceptor.dart';
 import 'package:mecavoltia_society_app/core/network/session_events.dart';
 import 'package:mecavoltia_society_app/core/storage/token_storage.dart';
+import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part 'api_client.g.dart';
 

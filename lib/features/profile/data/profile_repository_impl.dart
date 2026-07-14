@@ -1,12 +1,12 @@
 import 'dart:typed_data';
 
 import 'package:dio/dio.dart';
-import 'package:riverpod_annotation/riverpod_annotation.dart';
-
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:mecavoltia_society_app/core/errors/failure.dart';
 import 'package:mecavoltia_society_app/core/network/api_client.dart';
 import 'package:mecavoltia_society_app/features/profile/domain/member.dart';
 import 'package:mecavoltia_society_app/features/profile/domain/profile_repository.dart';
+import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part 'profile_repository_impl.g.dart';
 

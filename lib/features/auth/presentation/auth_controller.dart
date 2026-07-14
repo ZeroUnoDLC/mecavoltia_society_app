@@ -1,10 +1,9 @@
 import 'dart:async';
 
-import 'package:riverpod_annotation/riverpod_annotation.dart';
-
 import 'package:mecavoltia_society_app/core/network/session_events.dart';
 import 'package:mecavoltia_society_app/features/auth/data/auth_repository_impl.dart';
 import 'package:mecavoltia_society_app/features/auth/domain/session_user.dart';
+import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part 'auth_controller.g.dart';
 
@@ -17,7 +16,7 @@ class AuthController extends _$AuthController {
   @override
   Future<SessionUser?> build() async {
     // El interceptor avisa si el refresh murió → volver a login
-    _expiredSub?.cancel();
+    unawaited(_expiredSub?.cancel());
     _expiredSub = ref.watch(sessionEventsProvider).expired.listen((_) {
       state = const AsyncData(null);
     });

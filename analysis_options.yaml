@@ -12,5 +12,6 @@ analyzer:
 
 linter:
   rules:
-    # Los docs públicos no aplican a una app interna de 3 usuarios
+    # App interna de 3 usuarios: docs públicos y línea de 80 no aplican
     public_member_api_docs: false
+    lines_longer_than_80_chars: false

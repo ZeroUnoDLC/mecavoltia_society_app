@@ -1,4 +1,4 @@
-import 'package:file_picker/file_picker.dart';
+import 'package:file_selector/file_selector.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:image_picker/image_picker.dart';
@@ -98,14 +98,14 @@ class _ProfileFormState extends ConsumerState<_ProfileForm> {
   }
 
   Future<void> _pickCv() async {
-    final result = await FilePicker.platform.pickFiles(
-      type: FileType.custom,
-      allowedExtensions: ['pdf'],
-      withData: true,
+    const pdfGroup = XTypeGroup(
+      label: 'PDF',
+      extensions: ['pdf'],
+      mimeTypes: ['application/pdf'],
     );
-    final file = result?.files.firstOrNull;
-    final bytes = file?.bytes;
-    if (file == null || bytes == null) return;
+    final file = await openFile(acceptedTypeGroups: [pdfGroup]);
+    if (file == null) return;
+    final bytes = await file.readAsBytes();
     await ref
         .read(profileControllerProvider.notifier)
         .uploadCv(bytes: bytes, filename: file.name);

@@ -1,11 +1,11 @@
 import 'package:dio/dio.dart';
-import 'package:riverpod_annotation/riverpod_annotation.dart';
-
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:mecavoltia_society_app/core/errors/failure.dart';
 import 'package:mecavoltia_society_app/core/network/api_client.dart';
 import 'package:mecavoltia_society_app/core/storage/token_storage.dart';
 import 'package:mecavoltia_society_app/features/auth/domain/auth_repository.dart';
 import 'package:mecavoltia_society_app/features/auth/domain/session_user.dart';
+import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part 'auth_repository_impl.g.dart';
 
@@ -13,10 +13,9 @@ class AuthRepositoryImpl implements AuthRepository {
   AuthRepositoryImpl({
     required Dio publicClient,
     required Dio apiClient,
-    required TokenStorage storage,
+    required this._storage,
   })  : _public = publicClient,
-        _api = apiClient,
-        _storage = storage;
+        _api = apiClient;
 
   final Dio _public;
   final Dio _api;
