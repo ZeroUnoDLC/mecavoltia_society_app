@@ -34,6 +34,8 @@ dependencies:
 dev_dependencies:
   # Codegen
   build_runner: ^2.4.13
+  # Genera los íconos de launcher (android/ios) desde assets/icon/*
+  flutter_launcher_icons: ^0.14.1
   flutter_test:
     sdk: flutter
   freezed: ^2.5.7
@@ -46,3 +48,14 @@ flutter:
   uses-material-design: true
   assets:
     - assets/config.env
+    - assets/logo_mark.png
+
+# Ícono de la app — isotipo Mecavoltia (rayo volt + nodos de circuito).
+# Regenerar tras cambiar los PNG: dart run flutter_launcher_icons
+flutter_launcher_icons:
+  android: true
+  ios: true
+  remove_alpha_ios: true
+  image_path: "assets/icon/app_icon.png"
+  adaptive_icon_background: "assets/icon/app_icon_bg.png"
+  adaptive_icon_foreground: "assets/icon/app_icon_fg.png"

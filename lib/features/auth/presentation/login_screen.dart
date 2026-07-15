@@ -106,19 +106,30 @@ class _Brand extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Text.rich(
-      const TextSpan(
-        children: [
-          TextSpan(text: 'Meca', style: TextStyle(color: MvColors.text)),
-          TextSpan(text: 'Volt', style: TextStyle(color: MvColors.accent)),
-          TextSpan(text: 'IA', style: TextStyle(color: MvColors.signal)),
-        ],
-      ),
-      textAlign: TextAlign.center,
-      style: Theme.of(context)
-          .textTheme
-          .headlineLarge
-          ?.copyWith(fontWeight: FontWeight.w900),
+    return Column(
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        Image.asset(
+          'assets/logo_mark.png',
+          width: 72,
+          height: 72,
+        ),
+        const SizedBox(height: 16),
+        Text.rich(
+          const TextSpan(
+            children: [
+              TextSpan(text: 'Meca', style: TextStyle(color: MvColors.text)),
+              TextSpan(text: 'Volt', style: TextStyle(color: MvColors.accent)),
+              TextSpan(text: 'IA', style: TextStyle(color: MvColors.signal)),
+            ],
+          ),
+          textAlign: TextAlign.center,
+          style: Theme.of(context)
+              .textTheme
+              .headlineMedium
+              ?.copyWith(fontWeight: FontWeight.w900),
+        ),
+      ],
     );
   }
 }
